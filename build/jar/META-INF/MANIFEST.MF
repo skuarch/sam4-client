@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.8.3
+Created-By: 1.7.0_06-b24 (Oracle Corporation)
+X-COMMENT: Main-Class will be added automatically by build
+Class-Path: antlr-2.7.7.jar lib/antlr-2.7.7.jar dom4j-1.6.1.jar lib/do
+ m4j-1.6.1.jar hibernate-commons-annotations-4.0.1.Final.jar lib/hiber
+ nate-commons-annotations-4.0.1.Final.jar hibernate-core-4.1.6.Final.j
+ ar lib/hibernate-core-4.1.6.Final.jar hibernate-jpa-2.0-api-1.0.1.Fin
+ al.jar lib/hibernate-jpa-2.0-api-1.0.1.Final.jar javassist-3.15.0-GA.
+ jar lib/javassist-3.15.0-GA.jar jboss-logging-3.1.0.GA.jar lib/jboss-
+ logging-3.1.0.GA.jar jboss-transaction-api_1.1_spec-1.0.0.Final.jar l
+ ib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar mysql-connector-jav
+ a-5.1.23-bin.jar lib/mysql-connector-java-5.1.23-bin.jar iText-2.1.5.
+ jar lib/iText-2.1.5.jar jcommon-1.0.17.jar lib/jcommon-1.0.17.jar jfr
+ eechart-1.0.14.jar lib/jfreechart-1.0.14.jar poi-3.7-20101029.jar lib
+ /poi-3.7-20101029.jar 
+Main-Class: controllers.global.ControllerMain
+

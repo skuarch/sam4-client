@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    
+    <session-factory>
+
+        <!-- using glassfish pool -->
+        <property name="show_sql">false</property>        
+        <property name="hibernate.connection.datasource">jdbc/sam_4</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>        
+        <property name="hbm2ddl.auto">validate</property>
+        
+        <mapping class="model.beans.Collectors"/>
+        <mapping class="model.beans.Users"/>
+        <mapping class="model.beans.Configuration"/>
+        <mapping class="model.beans.Subcategories"/>
+        <mapping class="model.beans.Categories"/>
+        <mapping class="model.beans.FilterViews"/>       
+
+    </session-factory>
+
+</hibernate-configuration>
