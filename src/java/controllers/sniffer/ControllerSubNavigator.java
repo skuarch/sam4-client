@@ -25,7 +25,7 @@ public class ControllerSubNavigator extends FabricTabs {
     //==========================================================================
     @Override
     public void addTab(final String tabName, final Component component) {
-
+System.out.println("antes SubNavigator"  +  component.getClass());
         if (tabName == null || tabName.length() < 1) {
             NOTIFICATIONS.error("Imposible add new tab", new Exception("tabName is null"));
             return;

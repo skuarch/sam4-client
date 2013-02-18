@@ -17,15 +17,15 @@ public class Filter2 extends javax.swing.JFrame {
     /**
      * Creates new form Sniffer
      */
-    public Filter2() {        
-        initComponents();        
+    public Filter2() {
+        initComponents();
         setLocationRelativeTo(getRootPane());
         setIconImage(Toolkit.getDefaultToolkit().getImage(MainFrame.class.getResource("/views/images/sam_icon.png")));
     }
 
     public JTabbedPane getjTabbedPaneViews() {
         return jTabbedPaneViews;
-    }    
+    }
 
     public JTabbedPane getjTabbedPaneCollectors() {
         return jTabbedPaneCollectors;
@@ -41,19 +41,16 @@ public class Filter2 extends javax.swing.JFrame {
 
     public JMenu getjMenuTools() {
         return jMenuTools;
-    }   
+    }
 
     public JMenuItem getjMenuItemOptions() {
         return jMenuItemOptions;
     }
-
-    public JMenuItem getjMenuItemCreateReport() {
-        return jMenuItemCreateReport;
-    }
-    
-    
-    
-    
+    /*
+     public JMenuItem getjMenuItemCreateReport() {
+     return jMenuItemCreateReport;
+     }
+     */
 
     //==========================================================================
     /**
@@ -73,7 +70,6 @@ public class Filter2 extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuTools = new javax.swing.JMenu();
         jMenuItemOptions = new javax.swing.JMenuItem();
-        jMenuItemCreateReport = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -104,9 +100,6 @@ public class Filter2 extends javax.swing.JFrame {
         jMenuItemOptions.setText("options");
         jMenuTools.add(jMenuItemOptions);
 
-        jMenuItemCreateReport.setText("create report");
-        jMenuTools.add(jMenuItemCreateReport);
-
         jMenuBar1.add(jMenuTools);
 
         setJMenuBar(jMenuBar1);
@@ -124,10 +117,8 @@ public class Filter2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemCreateReport;
     private javax.swing.JMenuItem jMenuItemOptions;
     private javax.swing.JMenu jMenuTools;
     private javax.swing.JPanel jPanel1;

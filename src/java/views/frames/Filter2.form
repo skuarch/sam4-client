@@ -14,11 +14,6 @@
                 <Property name="text" type="java.lang.String" value="options"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemCreateReport">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="create report"/>
-              </Properties>
-            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

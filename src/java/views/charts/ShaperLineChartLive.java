@@ -83,7 +83,7 @@ public class ShaperLineChartLive extends ApplicationFrame {
         t.start();
 
     }
-    
+
     //==========================================================================
     public void addSeriesList(final RegularTimePeriod[] regularTimePeriod, final Double[] number) {
 
@@ -93,6 +93,8 @@ public class ShaperLineChartLive extends ApplicationFrame {
 
                 for (int i = 0; i < seriesList.size(); i++) {
                     seriesList.get(i).addOrUpdate(regularTimePeriod[i], (double) number[i]);
+                    System.out.println("poniendo datos");
+                    System.out.println(regularTimePeriod[i] + "   " + (double) number[i]);
                 }
 
             }

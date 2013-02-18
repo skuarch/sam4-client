@@ -135,12 +135,12 @@ public class ControllerFilterGUI extends Controller {
                 }
             });
 
-            filter.getjMenuItemCreateReport().addActionListener(new ActionListener() {
+            /*filter.getjMenuItemCreateReport().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     createReport();
                 }
-            });
+            });*/
 
         } catch (Exception e) {
             NOTIFICATIONS.error("Unepected error", e);

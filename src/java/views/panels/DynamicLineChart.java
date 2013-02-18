@@ -1,6 +1,7 @@
 package views.panels;
 
 import controllers.global.ControllerNotifications;
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import model.net.Linker;
@@ -24,8 +25,14 @@ public class DynamicLineChart extends SnifferPanel {
         this.hm = hm;
         threadLive = new Thread();
         shutdown = true;
+        onLoad();
         doLive();
     } // end DynamicLineChart    
+    
+    //==========================================================================
+    private void onLoad(){
+        setLayout(new BorderLayout());
+    }
 
     //==========================================================================
     private void doLive() {
@@ -40,12 +47,16 @@ public class DynamicLineChart extends SnifferPanel {
                     hm.put("request", "live bandwidth data");
                     hm.put("liveSeconds", seconds);
                     arrayList = (ArrayList) new Linker().sendReceiveObject(hm);
-                    slcl = new ShaperLineChartLive("Live bandwidth Data", "", "", (String[]) arrayList.get(0));
+                    slcl = new ShaperLineChartLive("Live Bandwidth Data", "", "", (String[]) arrayList.get(0));
+                    add(slcl.getJPanel(), BorderLayout.CENTER);
+                    updateUI();
                     slcl.createSeries();
                     slcl.addSeriesList((RegularTimePeriod[]) arrayList.get(1), (Double[]) arrayList.get(2));
 
                     while (shutdown) {
 
+                        System.out.println("pidiendo datos");
+                        
                         threadLive.sleep(seconds);
 
                         if (!shutdown) {
@@ -54,7 +65,7 @@ public class DynamicLineChart extends SnifferPanel {
 
                         hm.put("request", "live bandwidth data");
                         arrayList = (ArrayList) new Linker().sendReceiveObject(hm);
-                        slcl = new ShaperLineChartLive("Live bandwidth Data", "", "", (String[]) arrayList.get(0));
+                        //slcl = new ShaperLineChartLive("Live bandwidth Data", "", "", (String[]) arrayList.get(0));
                         slcl.addSeriesList((RegularTimePeriod[]) arrayList.get(1), (Double[]) arrayList.get(2));
 
                     }
@@ -88,7 +99,9 @@ public class DynamicLineChart extends SnifferPanel {
             threadLive.stop();
             shutdown = false;
             threadLive = null;
+            slcl = null;
         } catch (Exception e) {
+            new ControllerNotifications().error("Error destroying live data", e);
         }
 
     }
@@ -99,6 +112,7 @@ public class DynamicLineChart extends SnifferPanel {
         try {
             destroy();
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             super.finalize();
         }

@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingWorker;
 import model.util.JTabPaneUtilities;
+import views.panels.SnifferPanel;
 import views.tabs.SnifferNavigator;
 
 /**
@@ -86,8 +87,20 @@ public class ControllerNavigator extends FabricTabs {
             @Override
             protected Void doInBackground() throws Exception {
 
+                Component component = null;
+                SnifferPanel sp = null;
+                
                 try {
+                    
                     JTabPaneUtilities.closeTab(navigator, nameComponent);
+                    component = JTabPaneUtilities.getComponent(navigator, nameComponent);
+                    
+                    if(component instanceof SnifferPanel){
+                        sp = (SnifferPanel) component;
+                        sp.destroy();
+                    }
+                    
+                    
                 } catch (Exception e) {
                     NOTIFICATIONS.error("Error closing tab", e);
                 }

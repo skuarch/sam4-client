@@ -42,7 +42,7 @@ public class ControllerNavigator extends FabricTabs {
     //==========================================================================
     @Override
     public void addTab(String tabName, Component component) {
-
+        System.out.println("antes Navigator"  +  component.getClass());
         if (tabName == null || tabName.length() < 1) {
             NOTIFICATIONS.error("Imposible add tab tabName is null or empty", new Exception());
             return;
