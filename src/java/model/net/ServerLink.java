@@ -81,7 +81,7 @@ class ServerLink {
         }
 
         url = new URL("http://" + mainServer + ":" + port + "/" + context + suffix);
-        hurlc = (HttpURLConnection) url.openConnection();
+        hurlc = (HttpURLConnection) url.openConnection();        
         hurlc.setConnectTimeout(timeOut);
         hurlc.setReadTimeout(timeOut);
 

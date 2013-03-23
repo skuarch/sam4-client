@@ -35,9 +35,9 @@ public class ServerLinkAction {
 
         try {
             
-            serverLink.initConnection();
-            serverLink.sendObject(object);
-            objectReturned = serverLink.receiveObject();
+            serverLink.initConnection();            
+            serverLink.sendObject(object);            
+            objectReturned = serverLink.receiveObject();            
             
         } catch (IOException ioe) {
             throw ioe;

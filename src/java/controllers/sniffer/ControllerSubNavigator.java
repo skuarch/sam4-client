@@ -81,6 +81,7 @@ System.out.println("antes SubNavigator"  +  component.getClass());
     @Override
     public void closeTab(String nameComponent) {
         try {
+            System.out.println("nameComponent Sub" + nameComponent);
             JTabPaneUtilities.closeTab(subNavigator, nameComponent);
         } catch (Exception e) {
             NOTIFICATIONS.error("Imposible close tab", e);

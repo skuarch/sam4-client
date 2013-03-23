@@ -59,7 +59,7 @@ public class ControllerNavigator extends FabricTabs {
         }
 
         try {
-
+            System.out.println("adding tab " + tabName);
             JLabel label = getCloseLabel(tabName);
             JPanel panelTitle = JTabPaneUtilities.getPanelTitle(tabName, label);
 
@@ -88,6 +88,7 @@ public class ControllerNavigator extends FabricTabs {
             protected Void doInBackground() throws Exception {
 
                 try {
+                    System.out.println("nameComponent Navigator" + nameComponent);
                     JTabPaneUtilities.closeTab(navigator, nameComponent);
                 } catch (Exception e) {
                     NOTIFICATIONS.error("Error closing tab", e);
@@ -139,6 +140,8 @@ public class ControllerNavigator extends FabricTabs {
 
                     try {
 
+                        System.out.println("nameComponent Navi " + nameComponent);
+                        
                         closeTab(nameComponent);
 
                     } catch (Exception ex) {

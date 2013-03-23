@@ -100,7 +100,7 @@ public class ControllerUserConfiguration extends Controller {
                     }
 
                     context = CurrentUser.getInstance().getContext();
-                    url = new URL("http://" + mainServer + ":" + port + "/" + context + "/connection");
+                    url = new URL("http://" + mainServer + ":" + port + "/" + context + "/ObjectDispenser");
                     uc.getjTextAreaOut().append("trying to connect\n");
                     hurlc = (HttpURLConnection) url.openConnection();
 

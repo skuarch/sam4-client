@@ -56,15 +56,14 @@ public class SimpleLineChart extends ApplicationFrame implements AxisChangeListe
     }
     
     //==========================================================================
-    public JFreeChart createChart(XYDataset ds) {
+    public JFreeChart createChart(XYDataset dataset) {
 
-        NumberAxis yAxis = null;
-
+        NumberAxis yAxis = null;        
         JFreeChart chart = ChartFactory.createXYAreaChart(
                 title,
                 titlex,
                 titley,
-                ds,
+                dataset,
                 PlotOrientation.VERTICAL,
                 true, // legend
                 false, // tool tips
@@ -135,6 +134,7 @@ public class SimpleLineChart extends ApplicationFrame implements AxisChangeListe
         cp.setDomainZoomable(true);
         cp.setRangeZoomable(false);
         cp.setPreferredSize(new Dimension(100, 100));
+        setContentPane(cp);
         return cp;
     }    
 } // end class

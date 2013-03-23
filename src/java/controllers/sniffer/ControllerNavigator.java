@@ -10,6 +10,7 @@ import javax.swing.SwingWorker;
 import model.util.JTabPaneUtilities;
 import views.panels.SnifferPanel;
 import views.tabs.SnifferNavigator;
+import views.tabs.SnifferSubNavigator;
 
 /**
  *
@@ -139,6 +140,7 @@ public class ControllerNavigator extends FabricTabs {
     //==========================================================================
     @Override
     public JLabel getCloseLabel(final String nameComponent) {
+        
         JLabel closeLabel = null;
 
         try {
@@ -149,9 +151,30 @@ public class ControllerNavigator extends FabricTabs {
                 @Override
                 public void mouseClicked(MouseEvent e) {
 
+                    Component[] c;
+                    SnifferPanel sp;
+                    SnifferSubNavigator sub;
+                    
+                    
                     try {
 
                         closeTab(nameComponent);
+                        
+                        System.out.println("navi " + nameComponent);
+                        sub  = (SnifferSubNavigator) JTabPaneUtilities.getComponent(navigator, nameComponent);                                                
+                        
+                        c = sub.getComponents();
+                        
+                        for(Component component : c){
+                            if(component instanceof SnifferPanel){
+                                sp = (SnifferPanel) component;
+                                sp.destroy();
+                                sp = null;
+                            }
+                        }
+                        
+                        sub.removeAll();                                                
+                        sub = null;                        
 
                     } catch (Exception ex) {
                         NOTIFICATIONS.error("Error closing tab", ex);
