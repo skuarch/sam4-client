@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 import model.net.Linker;
+import model.util.HashMapUtilities;
 import org.jfree.data.time.RegularTimePeriod;
 import views.charts.ShaperLineChartLive;
 
@@ -44,6 +45,7 @@ public class DynamicLineChart extends SnifferPanel {
             public void run() {
 
                 ArrayList arrayList;
+                HashMap hm2 = null;
 
                 try {
 
@@ -51,22 +53,29 @@ public class DynamicLineChart extends SnifferPanel {
                     hm.put("liveSeconds", seconds);
                     hm.put("count", count);
                     hm.put("firtsRequest", true);
-
-                    arrayList = (ArrayList) new Linker().sendReceiveObject(hm);
+                    
+                    
+                    System.out.println("hm1 " + hm);
+                    
+                    
+                    
+                    arrayList = (ArrayList) new Linker().sendReceiveObject(hm); 
                     slcl = new ShaperLineChartLive("Live Bandwidth Data", "", "", (String[]) arrayList.get(0));
                     add(slcl.getJPanel(), BorderLayout.CENTER);
                     updateUI();
                     slcl.createSeries();
                     slcl.addSeriesList((RegularTimePeriod[]) arrayList.get(1), (Double[]) arrayList.get(2));
                     timestamp = (Long) arrayList.get(3);
-
-                    hm.remove("firtsRequest");
+                    
+                    
+                    hm2 = HashMapUtilities.createHashMapFromHashMap(hm);
+                    hm2.put("firtsRequest",false);
                     while (shutdown) {
 
-                        hm.put("request", "live bandwidth data");
-                        hm.put("count", count);
-                        hm.put("timestamp", timestamp + ++count);
-                        arrayList = (ArrayList) new Linker().sendReceiveObject(hm);
+                        hm2.put("request", "live bandwidth data");
+                        hm2.put("count", count);
+                        hm2.put("timestamp", timestamp + ++count);
+                        arrayList = (ArrayList) new Linker().sendReceiveObject(hm2);
                         //slcl = new ShaperLineChartLive("Live bandwidth Data", "", "", (String[]) arrayList.get(0));
                         slcl.addSeriesList((RegularTimePeriod[]) arrayList.get(1), (Double[]) arrayList.get(2));
 

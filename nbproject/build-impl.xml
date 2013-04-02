@@ -788,10 +788,10 @@ exists or setup the property manually. For example like this:
         <basename file="${file.reference.javassist-3.15.0-GA.jar}" property="manifest.file.reference.javassist-3.15.0-GA.jar"/>
         <basename file="${file.reference.jboss-logging-3.1.0.GA.jar}" property="manifest.file.reference.jboss-logging-3.1.0.GA.jar"/>
         <basename file="${file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar}" property="manifest.file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
-        <basename file="${file.reference.mysql-connector-java-5.1.23-bin.jar}" property="manifest.file.reference.mysql-connector-java-5.1.23-bin.jar"/>
         <basename file="${file.reference.iText-2.1.5.jar}" property="manifest.file.reference.iText-2.1.5.jar"/>
         <basename file="${file.reference.jcommon-1.0.17.jar}" property="manifest.file.reference.jcommon-1.0.17.jar"/>
         <basename file="${file.reference.jfreechart-1.0.14.jar}" property="manifest.file.reference.jfreechart-1.0.14.jar"/>
+        <basename file="${file.reference.mysql-connector-java-5.1.23-bin.jar}" property="manifest.file.reference.mysql-connector-java-5.1.23-bin.jar"/>
         <basename file="${file.reference.poi-3.7-20101029.jar}" property="manifest.file.reference.poi-3.7-20101029.jar"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
             <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 jar-6 jar-7 jar-8 jar-9 jar-10 jar-11 jar-12 jar-13 "/>
@@ -803,10 +803,10 @@ exists or setup the property manually. For example like this:
             <attribute name="jar-6-Extension-Name" value="${manifest.file.reference.javassist-3.15.0-GA.jar}"/>
             <attribute name="jar-7-Extension-Name" value="${manifest.file.reference.jboss-logging-3.1.0.GA.jar}"/>
             <attribute name="jar-8-Extension-Name" value="${manifest.file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar}"/>
-            <attribute name="jar-9-Extension-Name" value="${manifest.file.reference.mysql-connector-java-5.1.23-bin.jar}"/>
-            <attribute name="jar-10-Extension-Name" value="${manifest.file.reference.iText-2.1.5.jar}"/>
-            <attribute name="jar-11-Extension-Name" value="${manifest.file.reference.jcommon-1.0.17.jar}"/>
-            <attribute name="jar-12-Extension-Name" value="${manifest.file.reference.jfreechart-1.0.14.jar}"/>
+            <attribute name="jar-9-Extension-Name" value="${manifest.file.reference.iText-2.1.5.jar}"/>
+            <attribute name="jar-10-Extension-Name" value="${manifest.file.reference.jcommon-1.0.17.jar}"/>
+            <attribute name="jar-11-Extension-Name" value="${manifest.file.reference.jfreechart-1.0.14.jar}"/>
+            <attribute name="jar-12-Extension-Name" value="${manifest.file.reference.mysql-connector-java-5.1.23-bin.jar}"/>
             <attribute name="jar-13-Extension-Name" value="${manifest.file.reference.poi-3.7-20101029.jar}"/>
         </manifest>
     </target>
@@ -819,13 +819,13 @@ exists or setup the property manually. For example like this:
         <copyfiles files="${file.reference.javassist-3.15.0-GA.jar}" manifestproperty="manifest.file.reference.javassist-3.15.0-GA.jar" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.jboss-logging-3.1.0.GA.jar}" manifestproperty="manifest.file.reference.jboss-logging-3.1.0.GA.jar" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar}" manifestproperty="manifest.file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar" todir="${dist.ear.dir}/lib"/>
-        <copyfiles files="${file.reference.mysql-connector-java-5.1.23-bin.jar}" manifestproperty="manifest.file.reference.mysql-connector-java-5.1.23-bin.jar" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.iText-2.1.5.jar}" manifestproperty="manifest.file.reference.iText-2.1.5.jar" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.jcommon-1.0.17.jar}" manifestproperty="manifest.file.reference.jcommon-1.0.17.jar" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.jfreechart-1.0.14.jar}" manifestproperty="manifest.file.reference.jfreechart-1.0.14.jar" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${file.reference.mysql-connector-java-5.1.23-bin.jar}" manifestproperty="manifest.file.reference.mysql-connector-java-5.1.23-bin.jar" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${file.reference.poi-3.7-20101029.jar}" manifestproperty="manifest.file.reference.poi-3.7-20101029.jar" todir="${dist.ear.dir}/lib"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
-            <attribute name="Class-Path" value="${manifest.file.reference.antlr-2.7.7.jar} lib/${manifest.file.reference.antlr-2.7.7.jar} ${manifest.file.reference.dom4j-1.6.1.jar} lib/${manifest.file.reference.dom4j-1.6.1.jar} ${manifest.file.reference.hibernate-commons-annotations-4.0.1.Final.jar} lib/${manifest.file.reference.hibernate-commons-annotations-4.0.1.Final.jar} ${manifest.file.reference.hibernate-core-4.1.6.Final.jar} lib/${manifest.file.reference.hibernate-core-4.1.6.Final.jar} ${manifest.file.reference.hibernate-jpa-2.0-api-1.0.1.Final.jar} lib/${manifest.file.reference.hibernate-jpa-2.0-api-1.0.1.Final.jar} ${manifest.file.reference.javassist-3.15.0-GA.jar} lib/${manifest.file.reference.javassist-3.15.0-GA.jar} ${manifest.file.reference.jboss-logging-3.1.0.GA.jar} lib/${manifest.file.reference.jboss-logging-3.1.0.GA.jar} ${manifest.file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar} lib/${manifest.file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar} ${manifest.file.reference.mysql-connector-java-5.1.23-bin.jar} lib/${manifest.file.reference.mysql-connector-java-5.1.23-bin.jar} ${manifest.file.reference.iText-2.1.5.jar} lib/${manifest.file.reference.iText-2.1.5.jar} ${manifest.file.reference.jcommon-1.0.17.jar} lib/${manifest.file.reference.jcommon-1.0.17.jar} ${manifest.file.reference.jfreechart-1.0.14.jar} lib/${manifest.file.reference.jfreechart-1.0.14.jar} ${manifest.file.reference.poi-3.7-20101029.jar} lib/${manifest.file.reference.poi-3.7-20101029.jar} "/>
+            <attribute name="Class-Path" value="${manifest.file.reference.antlr-2.7.7.jar} lib/${manifest.file.reference.antlr-2.7.7.jar} ${manifest.file.reference.dom4j-1.6.1.jar} lib/${manifest.file.reference.dom4j-1.6.1.jar} ${manifest.file.reference.hibernate-commons-annotations-4.0.1.Final.jar} lib/${manifest.file.reference.hibernate-commons-annotations-4.0.1.Final.jar} ${manifest.file.reference.hibernate-core-4.1.6.Final.jar} lib/${manifest.file.reference.hibernate-core-4.1.6.Final.jar} ${manifest.file.reference.hibernate-jpa-2.0-api-1.0.1.Final.jar} lib/${manifest.file.reference.hibernate-jpa-2.0-api-1.0.1.Final.jar} ${manifest.file.reference.javassist-3.15.0-GA.jar} lib/${manifest.file.reference.javassist-3.15.0-GA.jar} ${manifest.file.reference.jboss-logging-3.1.0.GA.jar} lib/${manifest.file.reference.jboss-logging-3.1.0.GA.jar} ${manifest.file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar} lib/${manifest.file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar} ${manifest.file.reference.iText-2.1.5.jar} lib/${manifest.file.reference.iText-2.1.5.jar} ${manifest.file.reference.jcommon-1.0.17.jar} lib/${manifest.file.reference.jcommon-1.0.17.jar} ${manifest.file.reference.jfreechart-1.0.14.jar} lib/${manifest.file.reference.jfreechart-1.0.14.jar} ${manifest.file.reference.mysql-connector-java-5.1.23-bin.jar} lib/${manifest.file.reference.mysql-connector-java-5.1.23-bin.jar} ${manifest.file.reference.poi-3.7-20101029.jar} lib/${manifest.file.reference.poi-3.7-20101029.jar} "/>
         </manifest>
     </target>
     <target name="-copy-meta-inf">

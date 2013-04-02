@@ -44,6 +44,7 @@ public class PanelTreeViews extends javax.swing.JPanel {
         jTreeViews.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTreeViews.setDragEnabled(true);
         jTreeViews.setRootVisible(false);
+        jTreeViews.setShowsRootHandles(false);
         jScrollPane1.setViewportView(jTreeViews);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

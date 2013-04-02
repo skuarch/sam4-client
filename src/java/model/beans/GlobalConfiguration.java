@@ -8,7 +8,7 @@ public class GlobalConfiguration extends Configuration {
 
     private String mainServer;
     private int mainServerPort;
-    private String context;
+    private String context; 
 
     //==========================================================================
     private GlobalConfiguration() {
@@ -48,4 +48,6 @@ public class GlobalConfiguration extends Configuration {
     public void setContext(String context) {
         this.context = context;
     }
+    
+    
 }

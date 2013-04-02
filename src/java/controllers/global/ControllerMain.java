@@ -26,6 +26,7 @@ public class ControllerMain extends Controller {
      */
     public static void main(String[] args) {
         try {
+            System.out.println("sam version 4");
             new ControllerMain().setupInterface();
         } catch (Exception e) {
             NOTIFICATIONS.error("please report this problem with the administrator", e);

@@ -11,6 +11,7 @@ import controllers.sniffer.ControllerSniffer;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import model.beans.CurrentUser;
+import model.beans.GlobalConfiguration;
 import views.frames.MainFrame;
 
 /**
@@ -26,7 +27,7 @@ public class ControllerMainFrame extends Controller {
     private ControllerEndToEnd e2e = ControllerEndToEnd.getInstance();
     private ControllerShaper shaper = ControllerShaper.getInstance();
     private ControllerFilter controllerFilter = ControllerFilter.getInstance();
-    private ControllerFilterGUI cfg =  ControllerFilterGUI.getInstance();
+    private ControllerFilterGUI cfg = ControllerFilterGUI.getInstance();
 
     //==========================================================================    
     /**
@@ -99,28 +100,26 @@ public class ControllerMainFrame extends Controller {
                 @Override
                 public void actionPerformed(ActionEvent e) {
 
-                    mainFrame.getjButtonSniffer().setEnabled(false);                    
+                    mainFrame.getjButtonSniffer().setEnabled(false);
                     cs.setVisible(true);
                     mainFrame.getjButtonSniffer().setEnabled(true);
 
                 }
             });
-            
+
             //------------------------------------------------------------------
             mainFrame.getjButtonFirewall().addActionListener(new ActionListener() {
-
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mainFrame.getjButtonSniffer().setEnabled(false); 
+                    mainFrame.getjButtonSniffer().setEnabled(false);
                     cf.setupInterface();
                     cf.setVisible(true);
                     mainFrame.getjButtonSniffer().setEnabled(true);
                 }
             });
-            
+
             //------------------------------------------------------------------
             mainFrame.getjButtonScanner().addActionListener(new ActionListener() {
-
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mainFrame.getjButtonScanner().setEnabled(false);
@@ -128,10 +127,9 @@ public class ControllerMainFrame extends Controller {
                     mainFrame.getjButtonScanner().setEnabled(true);
                 }
             });
-            
+
             //------------------------------------------------------------------
             mainFrame.getjButtonE2E().addActionListener(new ActionListener() {
-
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mainFrame.getjButtonScanner().setEnabled(false);
@@ -139,10 +137,9 @@ public class ControllerMainFrame extends Controller {
                     mainFrame.getjButtonScanner().setEnabled(true);
                 }
             });
-            
+
             //------------------------------------------------------------------
             mainFrame.getjButtonShaper().addActionListener(new ActionListener() {
-
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     mainFrame.getjButtonScanner().setEnabled(false);
@@ -150,19 +147,18 @@ public class ControllerMainFrame extends Controller {
                     mainFrame.getjButtonScanner().setEnabled(true);
                 }
             });
-            
+
             //------------------------------------------------------------------
             mainFrame.getjButtonFilter().addActionListener(new ActionListener() {
-
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    
+
                     /*mainFrame.getjButtonScanner().setEnabled(false);
-                    controllerFilter.setVisible(true);
-                    mainFrame.getjButtonScanner().setEnabled(true);*/
-                    
-                    cfg.setVisible(true);                    
-                    
+                     controllerFilter.setVisible(true);
+                     mainFrame.getjButtonScanner().setEnabled(true);*/
+
+                    cfg.setVisible(true);
+
                 }
             });
 
@@ -191,13 +187,47 @@ public class ControllerMainFrame extends Controller {
         private static final ControllerMainFrame INSTANCE = new ControllerMainFrame();
     } // end NewMainFrameHolder
 
-    public MainFrame getMainFrame(){
+    public MainFrame getMainFrame() {
         return this.mainFrame;
     }
-    
+
     //==========================================================================
     @Override
     public void setupInterface() {
+
+        GlobalConfiguration gc = null;
+
+        try {
+
+            gc = GlobalConfiguration.getInstance();
+
+            if (gc.getIsActiveEndToEnd() == 0) {
+                mainFrame.getjButtonE2E().setEnabled(false);
+            }
+
+            if (gc.getIsActiveFilter() == 0) {
+                mainFrame.getjButtonFilter().setEnabled(false);
+            }
+
+            if (gc.getIsActiveFirewall() == 0) {
+                mainFrame.getjButtonFirewall().setEnabled(false);
+            }
+
+            if (gc.getIsActivePortScanner() == 0) {
+                mainFrame.getjButtonScanner().setEnabled(false);
+            }
+
+            if (gc.getIsActiveShaper() == 0) {
+                mainFrame.getjButtonShaper().setEnabled(false);
+            }
+
+            if (gc.getIsActiveSniffer() == 0) {
+                mainFrame.getjButtonSniffer().setEnabled(false);
+            }
+
+        } catch (Exception e) {
+            NOTIFICATIONS.error("unexpected error", e);
+        }
     }
 
     //==========================================================================

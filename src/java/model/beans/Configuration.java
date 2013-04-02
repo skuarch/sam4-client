@@ -25,7 +25,19 @@ public class Configuration implements Serializable {
     @Column(name = "configuration_time_wait_connectivity")
     private int timeWaitConnectivity;
     @Column(name="configuration_project_name")
-    private String projectName;
+    private String projectName;    
+    @Column(name="configuration_active_sniffer")
+    private int isActiveSniffer;
+    @Column(name="configuration_active_shaper")
+    private int isActiveShaper;
+    @Column(name="configuration_active_filter")
+    private int isActiveFilter;
+    @Column(name="configuration_active_port_scanner")
+    private int isActivePortScanner;
+    @Column(name="configuration_active_e2e")
+    private int isActiveEndToEnd;
+    @Column(name="configuration_active_firewall")
+    private int isActiveFirewall;
     
     //==========================================================================
     public Configuration() {
@@ -62,6 +74,53 @@ public class Configuration implements Serializable {
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }   
-    
+
+    public int getIsActiveSniffer() {
+        return isActiveSniffer;
+    }
+
+    public void setIsActiveSniffer(int isActiveSniffer) {
+        this.isActiveSniffer = isActiveSniffer;
+    }
+
+    public int getIsActiveShaper() {
+        return isActiveShaper;
+    }
+
+    public void setIsActiveShaper(int isActiveShaper) {
+        this.isActiveShaper = isActiveShaper;
+    }
+
+    public int getIsActiveFilter() {
+        return isActiveFilter;
+    }
+
+    public void setIsActiveFilter(int isActiveFilter) {
+        this.isActiveFilter = isActiveFilter;
+    }
+
+    public int getIsActivePortScanner() {
+        return isActivePortScanner;
+    }
+
+    public void setIsActivePortScanner(int isActivePortScanner) {
+        this.isActivePortScanner = isActivePortScanner;
+    }
+
+    public int getIsActiveEndToEnd() {
+        return isActiveEndToEnd;
+    }
+
+    public void setIsActiveEndToEnd(int isActiveEndToEnd) {
+        this.isActiveEndToEnd = isActiveEndToEnd;
+    }
+
+    public int getIsActiveFirewall() {
+        return isActiveFirewall;
+    }
+
+    public void setIsActiveFirewall(int isActiveFirewall) {
+        this.isActiveFirewall = isActiveFirewall;
+    }
     
 } // end class

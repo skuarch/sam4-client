@@ -19,10 +19,10 @@
             <included-library dirs="200">file.reference.javassist-3.15.0-GA.jar</included-library>
             <included-library dirs="200">file.reference.jboss-logging-3.1.0.GA.jar</included-library>
             <included-library dirs="200">file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar</included-library>
-            <included-library dirs="200">file.reference.mysql-connector-java-5.1.23-bin.jar</included-library>
             <included-library dirs="200">file.reference.iText-2.1.5.jar</included-library>
             <included-library dirs="200">file.reference.jcommon-1.0.17.jar</included-library>
             <included-library dirs="200">file.reference.jfreechart-1.0.14.jar</included-library>
+            <included-library dirs="200">file.reference.mysql-connector-java-5.1.23-bin.jar</included-library>
             <included-library dirs="200">file.reference.poi-3.7-20101029.jar</included-library>
         </data>
     </configuration>

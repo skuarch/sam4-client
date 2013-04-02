@@ -52,6 +52,7 @@ public class PanelTreeCollectors extends javax.swing.JPanel {
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("wait...");
         jTreeCollectors.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
         jTreeCollectors.setComponentPopupMenu(jPopupMenu);
+        jTreeCollectors.setShowsRootHandles(false);
         jScrollPane1.setViewportView(jTreeCollectors);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -1,6 +1,7 @@
 package views.charts;
 
 import controllers.global.ControllerNotifications;
+import java.awt.BasicStroke;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,7 +13,6 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.DateAxis;
 import org.jfree.chart.axis.ValueAxis;
 import org.jfree.chart.labels.StandardXYToolTipGenerator;
-import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYItemRenderer;
 import org.jfree.data.time.RegularTimePeriod;
@@ -123,12 +123,11 @@ public class ShaperLineChartLive extends ApplicationFrame {
     //==========================================================================
     private JFreeChart createChart(XYDataset dataset) {
 
-        JFreeChart chart = ChartFactory.createXYAreaChart(
+        JFreeChart chart = ChartFactory.createTimeSeriesChart(
                 title,
                 titlex,
                 titley,
-                dataset,
-                PlotOrientation.VERTICAL,
+                dataset,               
                 true, // legend
                 false, // tool tips
                 false // URLs
@@ -140,11 +139,13 @@ public class ShaperLineChartLive extends ApplicationFrame {
         //domainAxis.setFixedAutoRange(5000.0);  // 5 seconds
         domainAxis.setLowerMargin(1.0);
         domainAxis.setUpperMargin(1.0);
-        domainAxis.setFixedAutoRange(3600000.0);  // 60 seconds 900000
+        //domainAxis.setFixedAutoRange(3600000.0);  // 60 seconds 900000
+        domainAxis.setFixedAutoRange(300000.0);  // 60 seconds 900000
         plot.setDomainAxis(domainAxis);
-        plot.setForegroundAlpha(0.5f);
+        //plot.setForegroundAlpha(0.5f);
 
-        XYItemRenderer renderer = plot.getRenderer();
+        XYItemRenderer renderer = plot.getRenderer();        
+        renderer.setSeriesStroke(10, renderer.getSeriesStroke(0));        
         renderer.setBaseToolTipGenerator(new StandardXYToolTipGenerator(
                 StandardXYToolTipGenerator.DEFAULT_TOOL_TIP_FORMAT,
                 new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss"),

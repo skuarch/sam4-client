@@ -132,6 +132,12 @@ public class ControllerLogin extends Controller {
                 globalConfiguration.setTimeWaitConnectivity(configuration.getTimeWaitConnectivity());
                 globalConfiguration.setTimeWaitMessage(configuration.getTimeWaitMessage());
                 globalConfiguration.setProjectName(configuration.getProjectName());
+                globalConfiguration.setIsActiveEndToEnd(configuration.getIsActiveEndToEnd());
+                globalConfiguration.setIsActiveFilter(configuration.getIsActiveFilter());
+                globalConfiguration.setIsActiveFirewall(configuration.getIsActiveFirewall());
+                globalConfiguration.setIsActivePortScanner(configuration.getIsActivePortScanner());
+                globalConfiguration.setIsActiveShaper(configuration.getIsActiveShaper());
+                globalConfiguration.setIsActiveSniffer(configuration.getIsActiveSniffer());
 
                 //open login window
                 cmf = ControllerMainFrame.getInstance();

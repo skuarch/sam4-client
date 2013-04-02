@@ -54,6 +54,7 @@
             </Property>
             <Property name="dragEnabled" type="boolean" value="true"/>
             <Property name="rootVisible" type="boolean" value="false"/>
+            <Property name="showsRootHandles" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

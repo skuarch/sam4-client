@@ -62,11 +62,9 @@ public class Exporter {
         hashMap.put("request", view + " Table");
         hashMap.put("isTable", "true");
 
-        arrayList = (ArrayList) new Linker().sendReceiveObject(hashMap);
-
-        columnNames = (String[]) arrayList.get(0);
-        data = (Object[][]) arrayList.get(1);
-
+        arrayList = (ArrayList) new Linker().sendReceiveObject(hashMap);                
+        columnNames = (String[]) arrayList.get(1);        
+        data = (Object[][]) arrayList.get(2);
         wb = new HSSFWorkbook();
         sheet = wb.createSheet(view); //sheet name
 
@@ -84,7 +82,7 @@ public class Exporter {
             rows = sheet.createRow((short) d + 1);
 
             for (int c = 0; c < columnNames.length; c++) {
-
+                System.out.println(data[d][c]);
                 if (data[d][c] instanceof String) {
                     stringTmp = (String) data[d][c];
                     rows.createCell((int) c).setCellValue(stringTmp);

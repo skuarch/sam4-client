@@ -72,6 +72,7 @@
             <Property name="componentPopupMenu" type="javax.swing.JPopupMenu" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="jPopupMenu"/>
             </Property>
+            <Property name="showsRootHandles" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>
