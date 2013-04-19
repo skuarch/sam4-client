@@ -162,8 +162,7 @@ public class ControllerUserConfiguration extends Controller {
             //change CurrentUser
             CurrentUser.getInstance().setMainServer(mainServer);
             CurrentUser.getInstance().setMainServerPort(port);
-
-            ControllerMainFrame.getInstance().setEnableButtons(true);
+            
             ControllerMainFrame.getInstance().setMessage("");
             uc.setVisible(false);
 
