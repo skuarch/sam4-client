@@ -53,7 +53,7 @@ public class PDFUtilities {
 
             if (!hm.get("drillDown").toString().equalsIgnoreCase("not applicable")) {
                 table.addCell(new Paragraph("drill down", cellFont));
-                table.addCell(new Paragraph(hm.get("drilldown").toString(), cellFont));
+                table.addCell(new Paragraph(hm.get("drillDown").toString(), cellFont));
             }
 
             if (!hm.get("ipProtocol").toString().equalsIgnoreCase("not applicable")) {
