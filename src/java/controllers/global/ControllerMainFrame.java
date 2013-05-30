@@ -111,10 +111,10 @@ public class ControllerMainFrame extends Controller {
             mainFrame.getjButtonFirewall().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mainFrame.getjButtonSniffer().setEnabled(false);
+                    mainFrame.getjButtonFirewall().setEnabled(false);
                     cf.setupInterface();
                     cf.setVisible(true);
-                    mainFrame.getjButtonSniffer().setEnabled(true);
+                    mainFrame.getjButtonFirewall().setEnabled(true);
                 }
             });
 
@@ -132,9 +132,9 @@ public class ControllerMainFrame extends Controller {
             mainFrame.getjButtonE2E().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mainFrame.getjButtonScanner().setEnabled(false);
+                    mainFrame.getjButtonE2E().setEnabled(false);
                     e2e.setVisible(true);
-                    mainFrame.getjButtonScanner().setEnabled(true);
+                    mainFrame.getjButtonE2E().setEnabled(true);
                 }
             });
 
@@ -142,9 +142,9 @@ public class ControllerMainFrame extends Controller {
             mainFrame.getjButtonShaper().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mainFrame.getjButtonScanner().setEnabled(false);
+                    mainFrame.getjButtonShaper().setEnabled(false);
                     shaper.setVisible(true);
-                    mainFrame.getjButtonScanner().setEnabled(true);
+                    mainFrame.getjButtonShaper().setEnabled(true);
                 }
             });
 

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Ant-Version: Apache Ant 1.8.3
-Created-By: 1.6.0_45-b06 (Sun Microsystems Inc.)
+Ant-Version: Apache Ant 1.8.4
+Created-By: 1.6.0_32-b05 (Sun Microsystems Inc.)
 X-COMMENT: Main-Class will be added automatically by build
 Class-Path: antlr-2.7.7.jar lib/antlr-2.7.7.jar dom4j-1.6.1.jar lib/do
  m4j-1.6.1.jar hibernate-commons-annotations-4.0.1.Final.jar lib/hiber

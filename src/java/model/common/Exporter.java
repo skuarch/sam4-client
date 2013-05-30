@@ -62,8 +62,8 @@ public class Exporter {
         hashMap.put("request", view + " Table");
         hashMap.put("isTable", "true");
 
-        arrayList = (ArrayList) new Linker().sendReceiveObject(hashMap);                
-        columnNames = (String[]) arrayList.get(1);        
+        arrayList = (ArrayList) new Linker().sendReceiveObject(hashMap);
+        columnNames = (String[]) arrayList.get(1);
         data = (Object[][]) arrayList.get(2);
         wb = new HSSFWorkbook();
         sheet = wb.createSheet(view); //sheet name
@@ -471,8 +471,17 @@ public class Exporter {
 
                                     //creating table****************************                                    
                                     arrayList = (ArrayList) snifferPanel.getData();
-                                    columnNames = (String[]) arrayList.get(0);
-                                    data = (Object[][]) arrayList.get(1);
+
+                                    //for conversations
+                                    if (arrayList.size() == 3) {
+                                        columnNames = (String[]) arrayList.get(1);
+                                        data = (Object[][]) arrayList.get(2);
+                                    } else {
+                                        //normal tables
+                                        columnNames = (String[]) arrayList.get(0);
+                                        data = (Object[][]) arrayList.get(1);
+                                    }
+
                                     table = new Table(columnNames.length, data.length);
                                     table.setPadding(2);
                                     table.setSpacing(2);
