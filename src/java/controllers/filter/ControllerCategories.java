@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
+import model.beans.CurrentUser;
 import model.net.Linker;
 import model.util.HashMapUtilities;
 import model.util.ViewUtilities;
@@ -39,6 +40,8 @@ public class ControllerCategories {
         jProgressBar.setIndeterminate(true);
         setEnableComponents(false);
 
+
+
         new SwingWorker<Void, Void>() {
             @Override
             protected Void doInBackground() throws Exception {
@@ -58,6 +61,13 @@ public class ControllerCategories {
                 } finally {
                     jProgressBar.setIndeterminate(false);
                     setEnableComponents(true);
+
+                    if (CurrentUser.getInstance().getLevel() == 0) {
+                        genericTable.getjButtonAdd().setEnabled(false);
+                        genericTable.getjButtonEdit().setEnabled(false);
+                        genericTable.getjButtonRemove().setEnabled(false);
+                        genericTable.getjButton1().setEnabled(false);
+                    }
                 }
 
                 return null;
@@ -296,5 +306,4 @@ public class ControllerCategories {
     public GenericTable getPanel() throws Exception {
         return genericTable;
     } // end getPanel
-    
 } // end class

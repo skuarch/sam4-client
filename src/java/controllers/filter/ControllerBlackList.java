@@ -8,6 +8,7 @@ import java.util.HashMap;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
+import model.beans.CurrentUser;
 import model.net.Linker;
 import model.util.HashMapUtilities;
 import views.panels.BlackList;
@@ -26,25 +27,24 @@ public class ControllerBlackList extends Controller {
     public ControllerBlackList() {
         blackList = new BlackList();
         hm = HashMapUtilities.getHashMapFilter();
-    }   
-    
+    }
+
     //==========================================================================
     /*private ControllerBlackList() {
-        blackList = new BlackList();
-        hm = HashMapUtilities.getHashMapFilter();
-    }
+     blackList = new BlackList();
+     hm = HashMapUtilities.getHashMapFilter();
+     }
 
-    //==========================================================================
-    public static ControllerBlackList getInstance() {
-        return ControllerBlackListHolder.INSTANCE;
-    }
+     //==========================================================================
+     public static ControllerBlackList getInstance() {
+     return ControllerBlackListHolder.INSTANCE;
+     }
     
-    //==========================================================================
-    private static class ControllerBlackListHolder {
+     //==========================================================================
+     private static class ControllerBlackListHolder {
 
-        private static final ControllerBlackList INSTANCE = new ControllerBlackList();
-    }*/
-
+     private static final ControllerBlackList INSTANCE = new ControllerBlackList();
+     }*/
     //==========================================================================
     public void setColletor(String collector) {
         this.collector = collector;
@@ -64,6 +64,10 @@ public class ControllerBlackList extends Controller {
                 try {
 
                     addListeners();
+
+                    if (CurrentUser.getInstance().getLevel() == 0) {
+                        blackList.getjButtonSave().setEnabled(false);
+                    }
 
                     blackList.setName("Black List");
                     blackList.getjLabelCollector().setText(collector);
@@ -107,6 +111,10 @@ public class ControllerBlackList extends Controller {
                     NOTIFICATIONS.error("Unexpected error", e);
                 } finally {
                     jProgressBar.setIndeterminate(false);
+
+                    if (CurrentUser.getInstance().getLevel() == 0) {
+                        blackList.getjButtonSave().setEnabled(false);
+                    }
                 }
 
                 return null;
@@ -140,7 +148,7 @@ public class ControllerBlackList extends Controller {
                 ArrayList data = new ArrayList();
                 String message = null;
 
-                try {                   
+                try {
 
                     data.add(blackList.getjRadioButtonYes().isSelected());
                     data.add(blackList.getjTextFieldUrl().getText());
@@ -213,6 +221,4 @@ public class ControllerBlackList extends Controller {
     public void destroyCurrentThread() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    
 } // end class

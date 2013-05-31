@@ -8,6 +8,7 @@ import java.util.HashMap;
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 import javax.swing.SwingWorker;
+import model.beans.CurrentUser;
 import model.net.Linker;
 import model.util.HashMapUtilities;
 import model.util.ViewUtilities;
@@ -56,6 +57,10 @@ public class ControllerEditCategorie extends Controller {
                 try {
 
                     addListeners();
+                    
+                    if(CurrentUser.getInstance().getLevel() == 0){
+                        categorie.getjButtonAdd().setEnabled(false);                        
+                    }
                     
                     categorie.getjTextFieldName().setEnabled(false);
                     categorie.getjButtonAdd().setIcon(new javax.swing.ImageIcon(getClass().getResource("/views/images/edit.png"))); // NOI18N

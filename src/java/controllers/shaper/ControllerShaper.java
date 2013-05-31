@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.SwingWorker;
+import model.beans.CurrentUser;
 import model.common.ModelCollectors;
 import model.net.Linker;
 import model.util.HashMapUtilities;
@@ -41,7 +42,6 @@ public class ControllerShaper extends Controller {
 
     //==========================================================================
     private static class ControllerShaperHolder {
-
         private static final ControllerShaper INSTANCE = new ControllerShaper();
     } // end ControllerShaperHolder
 
@@ -53,6 +53,14 @@ public class ControllerShaper extends Controller {
 
             ViewUtilities.fillJComboBox(shaper.getjComboBoxCollectors(), new ModelCollectors().getActivesCollectorsStringArray());
             addListeners();
+            
+            if(CurrentUser.getInstance().getLevel() == 0){
+                shaper.getjMenuItemRulesLoad().setEnabled(false);
+                shaper.getjMenuItemRulesUnload().setEnabled(false);
+                shaper.getjMenuItemRulesLoadDebug().setEnabled(false);
+                shaper.getjMenuItemStopCollector().setEnabled(false);
+                shaper.getjMenuItemStartCollector().setEnabled(false);
+            }
 
         } catch (Exception e) {
             NOTIFICATIONS.error("Unexpected error", e);

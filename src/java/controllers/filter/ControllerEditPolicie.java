@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.SwingWorker;
+import model.beans.CurrentUser;
 import model.net.Linker;
 import model.util.HashMapUtilities;
 import model.util.ViewUtilities;
@@ -54,6 +55,10 @@ public class ControllerEditPolicie extends Controller {
                     policy.getjTextFieldName().setEditable(false);
 
                     addListeners();
+                    
+                    if(CurrentUser.getInstance().getLevel() == 0){
+                        policy.getjButtonAdd().setEnabled(false);
+                    }
 
                     hm.put("collector", collector);
                     hm.put("name", policyName);

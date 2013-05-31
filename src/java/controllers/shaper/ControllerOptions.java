@@ -8,6 +8,7 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.SwingWorker;
+import model.beans.CurrentUser;
 import model.net.Linker;
 import model.util.HashMapUtilities;
 import model.util.ViewUtilities;
@@ -96,6 +97,9 @@ public class ControllerOptions extends Controller {
                 } finally {
                     setEnabledComponents(true);
                     shaperOptions.getjProgressBar().setIndeterminate(false);
+                     if (CurrentUser.getInstance().getLevel() == 0) {
+                        shaperOptions.getjButton2().setEnabled(false);                        
+                    }
                 }
 
                 return null;

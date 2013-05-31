@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import model.beans.CurrentUser;
 import model.net.Linker;
 import model.util.HashMapUtilities;
 import model.util.ViewUtilities;
@@ -48,6 +49,13 @@ public class ControllerChains {
                 } finally {
                     genericTable.getjProgressBar().setIndeterminate(false);
                     setEnableButtons(true);
+
+                    if (CurrentUser.getInstance().getLevel() == 0) {
+                        genericTable.getjButtonAdd().setEnabled(false);
+                        genericTable.getjButtonRemove().setEnabled(false);
+                        genericTable.getjButtonEdit().setEnabled(false);
+                        genericTable.getjButton1().setEnabled(false);
+                    }
                 }
             }
         }).start();

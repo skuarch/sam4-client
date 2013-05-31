@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import model.beans.CurrentUser;
 import model.common.ModelCollectors;
 import model.net.Linker;
 import model.util.ViewUtilities;
@@ -33,6 +34,7 @@ public class ControllerFirewall extends Controller {
 
     //==========================================================================
     private static class ControllerSnifferHolder {
+
         private static final ControllerFirewall INSTANCE = new ControllerFirewall();
     }
 
@@ -43,9 +45,9 @@ public class ControllerFirewall extends Controller {
         HashMap hashMap = new HashMap();
 
         try {
-            
+
             firewall = new Firewall();
-            
+
             hashMap.put("request", "get status");
             hashMap.put("type", "firewall");
 
@@ -54,7 +56,8 @@ public class ControllerFirewall extends Controller {
             ViewUtilities.fillJComboBox(firewall.getjComboBoxCollectors(), selectSomething);
             ViewUtilities.fillJComboBox(firewall.getjComboBoxCollectors(), new ModelCollectors().getActivesCollectorsStringArray());
 
-            addListeners();
+            addListeners();           
+            
 
         } catch (Exception e) {
             NOTIFICATIONS.error("Unexpected error", e);
@@ -296,6 +299,12 @@ public class ControllerFirewall extends Controller {
                             enabledComponents(false);
                         } finally {
                             firewall.getjProgressBar().setIndeterminate(false);
+                            if (CurrentUser.getInstance().getLevel() == 0) {
+                                firewall.getjButtonAdd().setEnabled(false);
+                                firewall.getjButtonRemove().setEnabled(false);
+                                firewall.getjCheckBoxEnabled().setEnabled(false);
+                                
+                            }
                         }
                     }
                 });

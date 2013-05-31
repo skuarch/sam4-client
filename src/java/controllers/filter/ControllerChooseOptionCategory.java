@@ -3,6 +3,7 @@ package controllers.filter;
 import controllers.Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.beans.CurrentUser;
 import views.dialogs.ChooseOptionCategory;
 
 /**
@@ -35,6 +36,10 @@ public class ControllerChooseOptionCategory extends Controller {
 
         addListeners();
 
+        if (CurrentUser.getInstance().getLevel() == 0) {
+            chooseOptionCategory.getjButton1().setEnabled(false);
+        }
+
     }
 
     //==========================================================================
@@ -47,9 +52,9 @@ public class ControllerChooseOptionCategory extends Controller {
                 public void actionPerformed(ActionEvent e) {
                     listType = chooseOptionCategory.getjComboBoxListType().getModel().getSelectedItem().toString();
                     ControllerEditCategorie cec = new ControllerEditCategorie(collector, controllerCategories, categoryName, listType);
-                    cec.setupInterface();                    
+                    cec.setupInterface();
                     setVisible(false);
-                    cec.setVisible(true);                    
+                    cec.setVisible(true);
                 }
             });
         }
@@ -63,7 +68,7 @@ public class ControllerChooseOptionCategory extends Controller {
                     ControllerAddCategorie cac = new ControllerAddCategorie(collector, controllerCategories, listType);
                     cac.setupInterface();
                     setVisible(false);
-                    cac.setVisible(true);                    
+                    cac.setVisible(true);
                 }
             });
 

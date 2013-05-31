@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JProgressBar;
 import javax.swing.SwingWorker;
+import model.beans.CurrentUser;
 import model.net.Linker;
 import model.util.HashMapUtilities;
 import model.util.ViewUtilities;
@@ -45,7 +46,7 @@ public class ControllerPolicies {
 
                 try {
 
-                    genericTable.getjButton1().setVisible(false);                    
+                    genericTable.getjButton1().setVisible(false);
                     genericTable.getjProgressBar().setVisible(false);
 
                     addListeners();
@@ -57,6 +58,13 @@ public class ControllerPolicies {
                 } finally {
                     jProgressBar.setIndeterminate(false);
                     setEnableComponents(true);
+                    
+                    if (CurrentUser.getInstance().getLevel() == 0) {
+                        genericTable.getjButtonAdd().setEnabled(false);
+                        genericTable.getjButtonEdit().setEnabled(false);
+                        genericTable.getjButtonRemove().setEnabled(false);
+                        genericTable.getjButton1().setEnabled(false);
+                    }
                 }
 
                 return null;
@@ -162,7 +170,7 @@ public class ControllerPolicies {
                     hm.put("id", id);
 
                     message = (String) new Linker().sendReceiveObject(hm);
-                    
+
                     reloadTable();
 
                     NOTIFICATIONS.information(message, true);
@@ -212,5 +220,4 @@ public class ControllerPolicies {
     public GenericTable getPanel() throws Exception {
         return genericTable;
     } // end getPanel
-    
 } // end class
