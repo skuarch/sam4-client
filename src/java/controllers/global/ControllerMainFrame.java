@@ -5,6 +5,7 @@ import controllers.e2e.ControllerEndToEnd;
 import controllers.filter.ControllerFilter;
 import controllers.filter.ControllerFilterGUI;
 import controllers.firewall.ControllerFirewall;
+import controllers.firewall.ControllerFirewallSam5;
 import controllers.portScanner.ControllerPortScanner;
 import controllers.shaper.ControllerShaper;
 import controllers.sniffer.ControllerSniffer;
@@ -111,10 +112,12 @@ public class ControllerMainFrame extends Controller {
             mainFrame.getjButtonFirewall().addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mainFrame.getjButtonFirewall().setEnabled(false);
+                    /*mainFrame.getjButtonFirewall().setEnabled(false);
                     cf.setupInterface();
                     cf.setVisible(true);
-                    mainFrame.getjButtonFirewall().setEnabled(true);
+                    mainFrame.getjButtonFirewall().setEnabled(true);*/                    
+                    new ControllerFirewallSam5().openBrowser();
+                    
                 }
             });
 
